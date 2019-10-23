@@ -1,9 +1,14 @@
 <template>
   <!-- <div class="container"> -->
   <!-- banner -->
-  <el-carousel trigger="click" :height="clientHeight">
+  <el-carousel class="banner" trigger="click" :height="clientHeight">
     <el-carousel-item v-for="item in images" :key="item">
-      <img :src="item">
+      <div
+        class="item_bg image"
+        style="backgroundImage: url('http://resources.jsmo.xin/templates/upload/16886/201910/1571023199395.jpg')"
+      >
+        <!-- <img :src="item"> -->
+      </div>
     </el-carousel-item>
   </el-carousel>
   <!-- </div> -->
@@ -20,7 +25,7 @@ export default {
         require("./../assets/images/banner01.jpg"),
         require("./../assets/images/banner02.jpg")
       ],
-      clientHeight: '600px'
+      clientHeight: "600px"
     };
   },
   mounted() {
@@ -36,16 +41,17 @@ export default {
 };
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+<style lang="scss">
+.banner {
+  .item_bg.image {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    // background-image: url(http://resources.jsmo.xin/templates/upload/16886/201910/1571023199395.jpg);
+  }
 }
-
 .el-carousel__item h3 {
   color: #475669;
   font-size: 14px;
