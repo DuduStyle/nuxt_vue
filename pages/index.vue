@@ -12,44 +12,95 @@
       </el-carousel-item>
     </el-carousel>
     <!-- 数字介绍 -->
-    <el-row class="container-gutter ">
+    <el-row class="container-gutter">
       <el-col :span="6">
         <div class="grid-content bg-purple content_list">
           <div class="number">
-             <span>8</span>
+            <span>8</span>
             <span>年</span>
           </div>
-          <div class="title">专注设计</div>
+          <div class="title">
+            专注设计
+          </div>
         </div>
       </el-col>
       <el-col :span="6">
-         <div class="grid-content bg-purple content_list">
+        <div class="grid-content bg-purple content_list">
           <div class="number">
-             <span>12</span>
+            <span>12</span>
             <span>+</span>
           </div>
-          <div class="title">设计师</div>
+          <div class="title">
+            设计师
+          </div>
         </div>
       </el-col>
       <el-col :span="6">
-         <div class="grid-content bg-purple content_list">
+        <div class="grid-content bg-purple content_list">
           <div class="number">
-             <span>820</span>
+            <span>820</span>
             <span>+</span>
           </div>
-          <div class="title">服务客户</div>
+          <div class="title">
+            服务客户
+          </div>
         </div>
       </el-col>
       <el-col :span="6">
-         <div class="grid-content bg-purple content_list">
+        <div class="grid-content bg-purple content_list">
           <div class="number">
             <span>2,100</span>
             <span>+</span>
           </div>
-          <div class="title">作品案例</div>
+          <div class="title">
+            作品案例
+          </div>
         </div>
       </el-col>
     </el-row>
+    <!-- 案例作品 -->
+    <div class="module_container wide">
+      <el-row type="flex" align="middle" justify="space-between">
+        <el-col>
+          <div>FORTFOLIO</div>
+          <div>作品案例</div>
+        </el-col>
+        <el-col class="container_category">
+          <a>高端发布</a>
+          <a>融资路演</a>
+          <a>企业介绍</a>
+          <a>招商推介</a>
+          <a>可见比赛</a>
+          <a>汇报总结</a>
+        </el-col>
+      </el-row>
+      <el-row class="content_list">
+        <el-col v-for="case_img in caseImages" :key="case_img" class="item_block" :span="12">
+          <a target="_blank">
+            <div
+              class="item-img"
+              :style="{backgroundImage:'url('+case_img+')'}"
+            >
+              <div class="item_img_mask" />
+              <div class="item-icon">{{ case_img }}</div>
+            </div>
+            <div class="item-wrapper">
+              <p class="title ellipsis">临空规划与产业招商</p>
+              <p class="subtitle ellipsis">政府招商/科技风格</p>
+            </div>
+          </a>
+        </el-col>
+        <el-col :span="12">
+          2
+        </el-col>
+        <el-col :span="12">
+          3
+        </el-col>
+        <el-col :span="12">
+          4
+        </el-col>
+      </el-row>
+    </div>
   </div>
 </template>
 
@@ -64,6 +115,7 @@ export default {
         require("./../assets/images/banner01.jpg"),
         require("./../assets/images/banner02.jpg")
       ],
+      caseImages: [require("./../assets/images/case01.jpg")],
       clientHeight: "600px"
     };
   },
@@ -116,5 +168,39 @@ export default {
       text-align: center;
     }
   }
+}
+// 案例作品
+.container_category {
+  text-align: right;
+  a {
+    position: relative;
+    display: inline-block;
+    margin: 0px 25px;
+    color: #6f6f6f;
+    transition: all 0.3s ease-out 0s;
+    font-size: 13px;
+    cursor: pointer;
+    &:after {
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 100%;
+      height: 1px;
+      background-color: #232323;
+      content: "";
+      opacity: 0;
+      transition: all 0.3s ease-out 0s;
+    }
+  }
+  a:hover {
+    color: #222;
+    &:after {
+      opacity: 1;
+      bottom: -4px;
+    }
+  }
+}
+
+.content_list {
 }
 </style>
